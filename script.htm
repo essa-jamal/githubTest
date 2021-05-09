@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scripts Test</title>
+
+    <body>
+      <button onclick="document.location='menu.html'" style="color: blueviolet;">
+        Go to Dashboard</button>
+    <script>
+      function Clickme() {
+        console.log('Hello');
+        var pic;
+        text=document.getElementById("btnlight").innerHTML;
+        
+        if ((text == 'on')) {
+         
+          console.log('text=',text);
+           
+          pic = "images/lighton.png";
+          console.log('in if');
+          text = "Off";
+        }
+        else {
+         
+          console.log('text=',text);
+           
+          pic = "images/lightoff.png";
+          console.log('in if');
+          text = "on";
+          
+        }
+        document.getElementById("btnlight").innerHTML = text;
+        document.getElementById("light").src = pic;
+      }
+    </script>
+  </head>
+  <body>
+    THis is for Test !!! <br><br>
+    <button type="button" id="btnlight" onclick="Clickme()" >on</button>
+<hr>
+
+      <img  id="light" alt="light" onclick="Clickme()" />
+    </form>
+    
+  </body>
+</html>

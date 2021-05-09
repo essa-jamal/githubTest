@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Multimedia</title>
+    <style>
+      fieldset {
+        border-style: solid;
+        width: 45%;
+        height: 350px;
+        float: left;
+        margin: 10px;
+        background-color: rgb(252, 249, 249);
+      }
+      hr {
+        width: 50%;
+        float: left;
+      }
+    </style>
+    <script>
+function makePlayPause(){
+var vid=document.getElementById('video1');
+var btn1=document.getElementById('btnplay');
+var text=btn1.innerHTML;
+if(text=="Play"){
+btn1.innerHTML="Pause";
+btn1.style.color="red";
+vid.play();}
+else{
+btn1.innerHTML="Play";
+vid.pause();
+
+
+}}
+function makeBig(){
+var vid=document.getElementById('video1');
+var btnbig=document.getElementById('btnbig');
+var btnsmall=document.getElementById('btnsmall');
+
+
+
+if(vid.width!=560)
+{vid.width=560;
+btnbig.style.color="red";
+btnsmall.style.color="black";
+}
+else{
+vid.width=420;
+btnbig.style.color="black";
+}}
+function makeSmall(){
+var vid=document.getElementById('video1');
+var btnbig=document.getElementById('btnbig');
+var btnsmall=document.getElementById('btnsmall');
+
+
+
+if(vid.width!=320)
+{vid.width=320;
+btnbig.style.color="black";
+btnsmall.style.color="red";
+}
+else{
+vid.width=420;
+btnsmall.style.color="black";
+}}
+
+
+
+    </script>
+  </head>
+  <body>
+    <button onclick="document.location='menu.html'" style="color: blueviolet; ">
+      Go to Dashboard
+    </button><br>
+    <fieldset>
+      <legend>Media</legend>
+      <p>
+        <b> Multimedia:</b> on the web is <i> sound, music, videos, movies</i>,
+        and <i> animations</i>.<hr />
+        <br><small>
+    <li><b> Multimedia</b> :MP4, WebM, and Ogg Video supported by HTML </li> 
+    <li><b> Audio</b>: MP3, WAV, and Ogg audio are supported by the HTML standard</li>
+</small>
+    </p>
+      
+    </fieldset>
+    <fieldset><legend>Video</legend>
+    <small><b>< video ></b> is used to show a video on a web page.</small>
+    <br><hr><br>
+    <div style="text-align: center;">
+<button onclick="makePlayPause()" id="btnplay">Play</button>
+
+<button onclick="makeBig()" id="btnbig">Big</button>
+<button onclick="makeSmall()" id="btnsmall">Small</button>
+
+    </div>
+ <center>  <video id="video1" width="420" height="240" controls autoplay muted >
+<source src="video/mov_bbb.mp4" type="video/mp4">
+Your browser doesn't support HTML video
+
+
+    </video></center> 
+    <p>Video of countesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+    </fieldset>
+    <fieldset><legend>Audio</legend>
+ <small><b> < audio ></b> element is used to play an audio file on a web page.</small>
+    <hr>
+    <br>
+    <audio controls autoplay muted>
+<source src="audio/horse.ogv" type="audio/mpeg">
+Your browser doesn't support the audio element.
+
+    </audio>
+    
+    </fieldset>
+    <fieldset ><legend>YouTube</legend>
+    The easiest way to play videos in HTML, is to use Youtube. <br>
+    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1&loop=1&controls=0" width="300" height="250" ></iframe>
+    
+    
+    </fieldset>
+    <fieldset style="height:100%"><legend>Plug-ins</legend>
+   <b> Plug-ins</b> were designed to be used for many different purposes:
+    <ul>
+<li>To run Java applets</li>
+<li>To run Microsoft Activex controls</li>
+<li>to display Flash Movies</li>
+<li>To scan for virouse</li>
+<li>To verify a bank id</li>
+    </ul>
+
+    The < object > element: <br>
+    <object data="HTML_Graphics.html" height="200px" width="300px"></object>
+    <object data="images/lighton.png" ></object>
+<embed src="HTML_Graphics.html" >    
+    <embed src="images/lighton.png" >
+</fieldset>
+    
+  </body>
+</html>

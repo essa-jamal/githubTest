@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Our Books Comment Section</title>
+  </head>
+  <body bgcolor="#F1F1E1">
+    <h1>Comment on a Book in Our Collection</h1>
+    <form action="processcomment.php" method="POST">
+    User Name: <input type="text" name="name" id="" /><br />
+ <p>   Rate the Book where 5 is best. </p>
+    <input type="radio" name="radio" id="rate" value="1" />1
+    <input type="radio" name="radio" id="rate" value="2" />2
+    <input type="radio" name="radio" id="rate" value="3" />3
+    <input type="radio" name="radio" id="rate" value="4" />4
+    <input type="radio" name="radio" id="rate" value="5" />5
+    <p><br><br>
+      comment: <br />
+      <textarea name="comment" id="txtarea" cols="40" rows="25"></textarea>
+      <br />
+      <input type="submit" value="Submit" />
+      <button type="reset" value="Reset">Reset</button>
+      </form>
+      <form action="./index.html" method="GET">
+    <input type="submit" value="Home" name="Home" id="home">
+    </form>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML API</title>
+    <style>
+      #div1,
+      #div2 {
+        width: 250px;
+        height: 70px;
+        padding: 10px;
+        border: 4px solid #aaaaaa;
+        outline-style: solid;
+        outline-width: 3px;
+        outline-color: rgb(62, 85, 150);
+        margin-bottom: 10px;
+      }
+    </style>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+
+        console.log("allowdrag");
+      }
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        console.log(document.getElementById(data).src);
+
+        if (ev.target.id == "div1") {
+          document.getElementById(data).src = "images/lighton.png";
+          console.log(ev.target.id, "lighton");
+        } else {
+          document.getElementById(data).src = "images/lightoff.png";
+          console.log(ev.target.id, "lightoff");
+        }
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="document.location='menu.html'" style="color: blueviolet">
+      Go to Dashboard
+    </button>
+    <center>
+      <div id="content" style="width: 90%; margin: 10px 3px 3px 3px">
+        <fieldset style="width: 30%; float: left; border-radius: 1ch">
+          <legend>GeoLocation</legend>
+          <p
+            style="
+              border-left: solid 3px rgb(235, 223, 223);
+              text-align: left;
+              padding-left: 3px;
+            "
+          >
+            The HTML GeoLocation API is used to locate a user's positon Click
+            the button to get your coordnates.
+            <input
+              type="button"
+              value="Submit"
+              onclick="getLocation()"
+              style="float: right; margin-top: 20px"
+            />
+          </p>
+          <p id="demo"></p>
+          <script>
+            var x = document.getElementById("demo");
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                  showPosition,
+                  showError
+                );
+              } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            }
+            function showPosition(positon) {
+              x.innerHTML =
+                "Latitude: " +
+                positon.coords.latitude +
+                "<br>Longitude: " +
+                positon.coords.longitude;
+
+              var latlon =
+                positon.coords.latitude + "," + positon.coords.longitude;
+              var img_url =
+                "https://maps.googleapis.com/maps/api/staticmap?center=" +
+                latlon +
+                "&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";
+              img_url = "https://www.google.com/maps/@" + latlon + ",14z";
+              document.getElementById("mapholder").innerHTML =
+                "<img src='" + img_url + "'>";
+            }
+
+            function showError(error) {
+              switch (error.code) {
+                case error.PERMISSION_DENIED:
+                  x.innerHTML = "User Denied the request for Geolocation.";
+                  x.style.color = "rgb(255, 30, 30)";
+                  console.log(x.style.color);
+                  console.log(error.code);
+                  break;
+                case error.TIMEOUT:
+                  x.innerHTML = "The request to get user location timed out.";
+
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                  x.innerHTML =
+                    "THe request to get user location is unavailable.";
+                  break;
+                case error.UNKNOWN_ERROR:
+                  x.innerHTML = "An unknown error occured.";
+                  break;
+                default:
+                  x.innerHTML = "(default) Other Error.";
+                  break;
+              }
+            }
+          </script>
+          <div id="mapholder">how to join google map with HTML!!!</div>
+        </fieldset>
+        <fieldset style="width: 30%; float: left">
+          <legend>Drag/Drop</legend>
+
+          <div
+            id="div1"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+          <img
+            id="drag1"
+            src="images/lightoff.png"
+            alt="lightoff"
+            draggable="true"
+            ondragstart="drag(event)"
+            width="80"
+            height="69"
+          />
+          <div
+            id="div2"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+        </fieldset>
+
+        <fieldset style="width: 30%; float: left">
+          <legend>Web Storage</legend>
+        </fieldset>
+        <fieldset style="width: 30%; float: left">
+          <legend>Web Workers</legend>
+        </fieldset>
+        <fieldset style="width: 30%; float: left">
+          <legend>SSE</legend>
+        </fieldset>
+      </div>
+    </center>
+  </body>
+</html>

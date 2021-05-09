@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #menu {
+        width: 100%;
+        background-color: #908ad8;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+      #menu li {
+        float: left;
+      }
+      #menu li a {
+        color: white;
+        padding: 16px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+      #menu li a:hover {
+        background-color: #b4c3d8;
+      }
+      li a:hover {
+        color: red;
+      }
+      h1 {
+        text-transform: capitalize;
+        text-align: center;
+        margin: 5px;
+      }
+
+      ul,
+      ol {
+        background-color: #dbd2d2;
+        margin: 10px;
+        width: 200px;
+      }
+      .ol,
+      .ul {
+        float: left;
+        padding: 3px;
+        font-size: smaller;
+        background-color: rgb(240, 243, 238);
+        margin: 10px;
+        border: 1px solid rgb(187, 207, 170);
+      }
+      .ul:hover {
+        font-size: larger;
+      }
+      .ol:hover {
+        font-size: larger;
+      }
+
+      .ul:focus {
+        font-size: larger;
+      }
+      .ol:focus {
+        font-size: larger;
+      }
+      #content{
+float: right;
+
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(219, 219, 217)">
+    <ul id="menu">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="index.html">Paragraph</a></li>
+      
+      <li><a href="table.html">Tables</a></li>
+      <li><a href="HTML_Forms.html">Forms</a></li>
+      <li><a href="HTML_Graphics.html">Graphics</a></li>
+      <li><a href="HTML_Media.html">Media</a></li>
+      <li><a href="HTML_APIs.html">APIs</a></li>
+      <li><a href="script.htm">About</a></li>
+    </ul>
+
+    <div id="leftside" style="width: 25%;height: 80%;border: brown 3px ;float: left;">
+       <p style="width: 100%;">
+    <h1>This is side bar</h1>
+    <hr>
+    <p style="text-transform: capitalize;" >Order Types: <br> <strong onmouseover="document.getElementsByClassName('ol').style.fontSize='larger';"> Ordered </strong> list <br><strong ondblclick="document.getElementsByClassName('ul').style.fontSize='smaller';" onmouseover="document.getElementsByClassName('ul').style.fontSize='larger';">Un ordered List</strong>
+    <strong onmouseover="document.getElementById('squaer').style.fontSize.toUpperCase">Square</strong>
+    
+    </p>
+    <hr>
+    </p>
+
+    <div>
+    
+    <iframe src="table.html" width="300" height="300" style="float:none;"  title="table_page"></iframe>
+  </div>
+       </div>
+    <div id="content" style="width: 75%;border: 1px;float: left;">
+      <div class="ul" >
+        <h1>un ordered list</h1>
+
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div id="squaer" class="ul">
+        <h1>un ordered list</h1>
+
+        <ul style="list-style-type: square">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="ul">
+        <h1>un ordered list</h1>
+
+        <ul style="list-style-type: circle">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="ul">
+        <h1>un ordered list</h1>
+
+        <ul style="list-style-type: lower-greek">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="ol">
+        <h1>ordered list</h1>
+
+        <ol type="1">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ol>
+      </div>
+      <div class="ol">
+        <h1>ordered list</h1>
+
+        <ol type="A">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ol>
+      </div>
+      <div class="ol">
+        <h1>ordered list</h1>
+
+        <ol type="a">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ol>
+      </div>
+      <div class="ol">
+        <h1>ordered list</h1>
+
+        <ol type="I">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ol>
+      </div>
+      <div class="ol">
+        <h1>ordered list</h1>
+
+        <ol type="i">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ol>
+      </div>
+      
+      
+    </div>
+    
+  </body>
+</html>

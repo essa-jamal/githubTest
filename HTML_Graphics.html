@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Graphics</title>
+  </head>
+  <body> <button onclick="document.location='menu.html'" style="color: blueviolet;">
+    Go to Dashboard</button>  
+    <fieldset style="border-style: solid; width: 90%">
+      <legend>HTML Graphics</legend>
+      <fieldset
+        style="
+          border-style: solid;
+          width: 45%;
+          height: 90%;
+          float: left;
+          margin: 10px;
+        "
+      >
+        <legend>HTML Canvas</legend>
+        <p>
+          The HTML < canvas > element is used to draw graphics, on the fly, via
+          JavaScript
+          <li>
+            it is only container for graphics. has several methods for drawing
+            paths, boxes, circles, text and adding images.
+          </li>
+        </p>
+        <canvas
+          id="mycanvas"
+          width="200"
+          height="100"
+          style="border-style: outset"
+          onclick="canvas_line_draw()"
+          ondblclick="canvas_line_draw2()"
+          onmouseover="canvas_circle_draw() "
+          onmousemove="canvas_Text_draw()"
+          ondrag="canvas_StrokeText_draw()"
+        ></canvas>
+
+        <canvas
+          id="mycanvas2"
+          height="100px"
+          width="300px"
+          style="border-style: outset"
+          onclick="canvas_gradient_draw()"
+        >
+        </canvas>
+        <canvas
+          id="mycanvas3"
+          height="100px"
+          width="200px"
+          style="border-style: outset"
+          onclick="canvas_Circular_gradient_draw()"
+        >
+        </canvas>
+        <canvas
+          id="mycanvas4"
+          height="100px"
+          width="200px"
+          style="border-style: outset"
+          onclick="canvas_image_draw()"
+        >
+        </canvas>
+        <img
+          src="images/lighton.png"
+          onclick="canvas_image2_draw()"
+          alt="lighton"
+          style="padding: 30px"
+          height="50px"
+          width="50px"
+          id="lighton"
+        />
+      </fieldset>
+      <fieldset
+        style="border-style: solid; width: 45%; height: 90%; margin: 10px"
+      >
+        <legend>HTML SVG</legend>
+        <p>
+          <strong>SVG</strong> : defines vector-based graphics in XML format
+        </p>
+        <svg width="100" height="100" style="float: left">
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="green"
+            stroke-width="4"
+            fill="yellow"
+          />
+        </svg>
+        <svg style="float: left" width="200" height="100">
+          <rect
+            width="150"
+            height="100"
+            style="fill: blue; stroke-width: 5; stroke: black"
+          />
+        </svg>
+        <svg style="float: left" width="200" height="100">
+          <rect
+            width="150"
+            height="100"
+            rx="20"
+            ry="20"
+            style="fill: red; stroke-width: 5; opacity: 0.6; stroke: black"
+          />
+        </svg>
+        <svg height="200px">
+          <polygon
+            points="100,10 40,198, 190,78 10,78 160,198"
+            style="
+              fill: red;
+              stroke-width: 5;
+              stroke: black;
+              fill-rule: evenodd;
+            "
+          />
+        </svg>
+
+        <svg style="float: left" height="130" width="200">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" y2="100%">
+              <stop offset="0%" style="stop-color: #ffff00; stop-opacity: 1" />
+              <stop offset="100%" style="stop-color: red; stop-opacity: 1" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+          <text fill="white" font-size="45" font-family="Verdana" x="50" y="86">
+            SVG
+          </text>
+          Sorry Your browser doen't support inLIne SVG
+        </svg>
+      </fieldset>
+    </fieldset>
+    <script>
+      function canvas_line_draw() {
+        var area = document.getElementById("mycanvas");
+        var context = area.getContext("2d");
+        context.moveTo(0, 0);
+        context.lineTo(200, 100);
+
+        context.stroke();
+      }
+      function canvas_line_draw2() {
+        var area = document.getElementById("mycanvas");
+        var context = area.getContext("2d");
+        context.moveTo(0, 0);
+        context.lineTo(200, 100);
+        context.moveTo(0, 200);
+        context.lineTo(100, 0);
+        context.stroke();
+      }
+
+      var area = document.getElementById("mycanvas");
+      var context = area.getContext("2d");
+      context.moveTo(0, 0);
+      context.lineTo(100, 100);
+
+      context.stroke();
+      function canvas_circle_draw() {
+        var area = document.getElementById("mycanvas");
+        var context = area.getContext("2d");
+        context.beginPath();
+        context.arc(95, 50, 40, 0, 2 * Math.PI);
+        context.stroke();
+      }
+      function canvas_Text_draw() {
+        var area = document.getElementById("mycanvas");
+        var context = area.getContext("2d");
+        context.font = "30px Arial";
+        context.fillText("Hello ..", 10, 50);
+      }
+      function canvas_StrokeText_draw() {
+        var area = document.getElementById("mycanvas");
+        var context = area.getContext("2d");
+        context.font = "20px Arial";
+
+        context.strokeText("No  !!! ..", 120, 50);
+      }
+      function canvas_gradient_draw() {
+        var area = document.getElementById("mycanvas2");
+        var context = area.getContext("2d");
+        //create gradient
+        var grd = context.createLinearGradient(0, 0, 300, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        //fill with gradient
+        context.fillStyle = grd;
+        context.fillRect(10, 10, 280, 80);
+      }
+      function canvas_Circular_gradient_draw() {
+        var area = document.getElementById("mycanvas3");
+        var context = area.getContext("2d");
+        //create gradient
+        var grd = context.createLinearGradient(75, 50, 5, 90, 60, 100);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        //fill with gradient
+        context.fillStyle = grd;
+        context.fillRect(10, 10, 180, 80);
+      }
+      function canvas_image_draw() {
+        var area = document.getElementById("mycanvas4");
+        var context = area.getContext("2d");
+        var area = document.getElementById("mycanvas");
+        context.drawImage(area, 0, 0);
+      }
+      function canvas_image2_draw() {
+        var area = document.getElementById("mycanvas4");
+        var context = area.getContext("2d");
+        var img = document.getElementById("lighton");
+        context.drawImage(img, 0, 0);
+      }
+    </script>
+      <button onclick="document.location='menu.html'" style="color: blueviolet;">
+        Go to Dashboard</button> 
+  </body>
+</html>
